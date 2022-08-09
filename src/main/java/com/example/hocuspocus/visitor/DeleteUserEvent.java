@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 import lombok.extern.jackson.Jacksonized;
-import reactor.core.publisher.Mono;
 
 @SuperBuilder
 @Jacksonized
@@ -16,10 +15,10 @@ import reactor.core.publisher.Mono;
 @JsonTypeName(DeleteUserEvent.CREATE_TYPE)
 public class DeleteUserEvent extends AbstractUserEvent implements Event {
 
-    public static final String CREATE_TYPE = "CREATE";
+    public static final java.lang.String CREATE_TYPE = "CREATE";
 
     @Override
-    public Mono<Event> processEvent(String key, EventVisitor visitor) {
-        return visitor.handle(key, this);
+    public String processEvent(EventVisitor visitor) {
+        return visitor.handle(this);
     }
 }

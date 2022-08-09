@@ -2,7 +2,6 @@ package com.example.hocuspocus.visitor;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import reactor.core.publisher.Mono;
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type", defaultImpl = VoidOrderEvent.class)
 @JsonSubTypes({
@@ -13,15 +12,15 @@ import reactor.core.publisher.Mono;
 })
 public interface Event {
 
-    Mono<Event> processEvent(String key, EventVisitor visitor);
+    String processEvent(EventVisitor visitor);
 
     interface EventVisitor {
 
-        Mono<Event> handle(String key, CreateUserEvent event);
+        String handle(CreateUserEvent event);
 
-        Mono<Event> handle(String key, UpdateUserEvent event);
+        String handle(UpdateUserEvent event);
 
-        Mono<Event> handle(String key, DeleteUserEvent event);
+        String handle(DeleteUserEvent event);
     }
 
 }
