@@ -1,7 +1,15 @@
 package com.example.hocuspocus;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Stream;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.javafaker.Faker;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.Test;
@@ -10,6 +18,147 @@ import reactor.core.publisher.Mono;
 
 @Slf4j
 public class DevSyncTest {
+
+    //    public static class ProductRisks{
+    //        Map<String , Object>
+    //    }
+
+
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    private static class Over {
+
+        Object monthlyPremium;
+        Map<String, List<Object>> productRisks;
+        //        Object productRisks;
+
+    }
+
+
+    String xxx2 = """
+            {
+              "monthlyPremium": {
+                "priceable": true,
+                "totalGrossPremium": 68.7,
+                "totalNetPremium": 62.91
+              },
+              "productRisks": {
+                "optionBlue": [
+                  {
+                    "cardifRiskType": "dread-disease-c24",
+                    "grossPremium": 6.38,
+                    "insuredSum": 1000,
+                    "netPremium": 6.38
+                  },
+                  {
+                    "cardifRiskType": "death-c24",
+                    "grossPremium": 26.0,
+                    "insuredSum": 50000,
+                    "netPremium": 26.0
+                  },
+                  {
+                    "cardifRiskType": "unemployment-c24",
+                    "grossPremium": 21.51,
+                    "insuredSum": 1000,
+                    "netPremium": 18.08
+                  },
+                  {
+                    "cardifRiskType": "disability-accident-c24",
+                    "grossPremium": 14.81,
+                    "insuredSum": 1000,
+                    "netPremium": 12.45
+                  }
+                ],
+                "optionGreen": [
+                  {
+                    "cardifRiskType": "dread-disease-c24",
+                    "grossPremium": 6.38,
+                    "insuredSum": 1000,
+                    "netPremium": 6.38
+                  },
+                  {
+                    "cardifRiskType": "death-c24",
+                    "grossPremium": 26.0,
+                    "insuredSum": 50000,
+                    "netPremium": 26.0
+                  },
+                  {
+                    "cardifRiskType": "unemployment-c24",
+                    "grossPremium": 21.51,
+                    "insuredSum": 1000,
+                    "netPremium": 18.08
+                  },
+                  {
+                    "cardifRiskType": "disability-accident-c24",
+                    "grossPremium": 14.81,
+                    "insuredSum": 1000,
+                    "netPremium": 12.45
+                  }
+                ],
+                "optionRed": [
+                  {
+                    "cardifRiskType": "dread-disease-c24",
+                    "grossPremium": 6.38,
+                    "insuredSum": 1000,
+                    "netPremium": 6.38
+                  },
+                  {
+                    "cardifRiskType": "death-c24",
+                    "grossPremium": 26.0,
+                    "insuredSum": 50000,
+                    "netPremium": 26.0
+                  },
+                  {
+                    "cardifRiskType": "unemployment-c24",
+                    "grossPremium": 21.51,
+                    "insuredSum": 1000,
+                    "netPremium": 18.08
+                  },
+                  {
+                    "cardifRiskType": "disability-accident-c24",
+                    "grossPremium": 14.81,
+                    "insuredSum": 1000,
+                    "netPremium": 12.45
+                  }
+                ]
+              }
+            }
+                        """;
+
+
+
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    private static class Zidle {
+
+        String name;
+        Map<String, String> mapa = new HashMap<>();
+
+    }
+
+    @SneakyThrows
+    @Test
+    public void mapInJson() {
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        Map<String, String> mapa = new HashMap<>();
+
+        mapa.put("123", "sdfsd");
+        mapa.put("456", "bhpoyukfk");
+        mapa.put("789", "cxjdjfd");
+
+        Zidle zidle = new Zidle("cervena", mapa);
+
+
+        log.info("xxx writeValueAsString : {}", objectMapper.writeValueAsString(zidle));
+        System.out.println("-------------------");
+
+
+        var res = objectMapper.readValue(xxx2, Over.class);
+        log.info("xxx readValue : {}", res);
+    }
 
     private final Faker faker = new Faker();
 

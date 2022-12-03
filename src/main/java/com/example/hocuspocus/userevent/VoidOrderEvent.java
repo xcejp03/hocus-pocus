@@ -1,4 +1,4 @@
-package com.example.hocuspocus.visitor;
+package com.example.hocuspocus.userevent;
 
 import lombok.extern.slf4j.Slf4j;
 

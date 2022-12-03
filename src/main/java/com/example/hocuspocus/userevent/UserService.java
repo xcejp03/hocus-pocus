@@ -4,7 +4,7 @@
  * Proprietary and confidential. Unauthorized copying of this file, via any
  * medium is strictly prohibited.
  */
-package com.example.hocuspocus.visitor;
+package com.example.hocuspocus.userevent;
 
 import lombok.extern.slf4j.Slf4j;
 

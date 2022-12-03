@@ -1,4 +1,4 @@
-package com.example.hocuspocus.visitor;
+package com.example.hocuspocus.userevent;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import lombok.EqualsAndHashCode;

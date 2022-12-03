@@ -1,4 +1,4 @@
-package com.example.hocuspocus.visitor;
+package com.example.hocuspocus.userevent;
 
 import java.util.Map;
 import java.util.UUID;

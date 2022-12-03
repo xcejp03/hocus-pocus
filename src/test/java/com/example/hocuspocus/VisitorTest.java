@@ -6,9 +6,9 @@
  */
 package com.example.hocuspocus;
 
-import com.example.hocuspocus.visitor.CreateUserEvent;
-import com.example.hocuspocus.visitor.DeleteUserEvent;
-import com.example.hocuspocus.visitor.UserService;
+import com.example.hocuspocus.userevent.CreateUserEvent;
+import com.example.hocuspocus.userevent.DeleteUserEvent;
+import com.example.hocuspocus.userevent.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 

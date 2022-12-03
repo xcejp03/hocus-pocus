@@ -1,4 +1,4 @@
-package com.example.hocuspocus.visitor;
+package com.example.hocuspocus.userevent;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import lombok.EqualsAndHashCode;
@@ -12,8 +12,8 @@ import lombok.extern.jackson.Jacksonized;
 @NoArgsConstructor
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
-@JsonTypeName(DeleteUserEvent.CREATE_TYPE)
-public class DeleteUserEvent extends AbstractUserEvent implements Event {
+@JsonTypeName(CreateUserEvent.CREATE_TYPE)
+public class CreateUserEvent extends AbstractUserEvent implements Event {
 
     public static final java.lang.String CREATE_TYPE = "CREATE";
 
